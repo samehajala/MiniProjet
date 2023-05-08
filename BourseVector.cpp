@@ -17,8 +17,11 @@ vector<string> BourseVector::getActionsDisponibleParDate(const Date& dateEntree)
             if (pj->getDate()==dateEntree){
             actions.push_back(pj->getNomAction()) ;
             }
+
+
         }
     }
+
     return actions;
 }
 

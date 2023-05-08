@@ -13,14 +13,23 @@ map<string , long> Simulation::executer(Bourse &bourse ,Trader& trader , Date da
     int NombreDesTransactionEchouees=0 ;
     while(dateCourante<=dateFin)
     {
+
         cout<<dateCourante<<endl ;
+        vector<string> actionsdisponiblesaujourdhui ;
+        actionsdisponiblesaujourdhui=bourse.getActionsDisponibleParDate(bourse.getDateCourante()) ;
+        if(actionsdisponiblesaujourdhui.size()==0)
+        {
+             dateCourante.passToNextDay() ;
+            bourse.PasserALaJourneeSuivante() ;
+        }
         int nombreTransactionParJour=0 ;
         Transaction transaction=trader.choisirTransaction(bourse,porteFeuille) ;
         if(transaction.getTypeTransaction()==Rien)
         {
-            cout<<"Rien faire"<<endl ;
+            //cout<<"Rien faire"<<endl ;
             NombreDesTransactionRien++ ;
         }
+
         while((nombreTransactionParJour<100) && (transaction.getTypeTransaction()!=Rien))
         {
             if(transaction.getTypeTransaction()==Acheter)
@@ -29,20 +38,20 @@ map<string , long> Simulation::executer(Bourse &bourse ,Trader& trader , Date da
                 Titre titreAchete(transaction.getNomAction(),transaction.getQuantite()) ;
                 if(porteFeuille.getSolde()>=bourse.getPrixJournalierParDatePourUneAction(dateCourante,transaction.getNomAction())*titreAchete.getQuantite())
                 {
-                    cout<<"Achater\t"<<transaction.getNomAction()<<"\t"<<transaction.getQuantite()<<endl ;
+                    //cout<<"Achater\t"<<transaction.getNomAction()<<"\t"<<transaction.getQuantite()<<endl ;
                     porteFeuille.acheterTitre(titreAchete,bourse.getPrixJournalierParDatePourUneAction(dateCourante,transaction.getNomAction())*titreAchete.getQuantite()) ;
                     NombreDesTransactionAcheter++ ;
 
                 }
                 else
                 {
-                    cout<<"La Transaction  "<<"Achater\t"<<transaction.getQuantite()<<"\t"<<transaction.getNomAction()<<"\test impossible"<<endl ;
+                    //cout<<"La Transaction  "<<"Achater\t"<<transaction.getQuantite()<<"\t"<<transaction.getNomAction()<<"\test impossible"<<endl ;
                     NombreDesTransactionEchouees++ ;
                 }
             }
             else
             {
-                cout<<"Vendre\t"<<transaction.getNomAction()<<"\t"<<transaction.getQuantite()<<endl ;
+                //cout<<"Vendre\t"<<transaction.getNomAction()<<"\t"<<transaction.getQuantite()<<endl ;
                 Titre titreVendre(transaction.getNomAction(),transaction.getQuantite()) ;
                 porteFeuille.vendreTitre(titreVendre,bourse.getPrixJournalierParDatePourUneAction(dateCourante,transaction.getNomAction())*titreVendre.getQuantite()) ;
                 NombreDesTransactionVendre ++ ;

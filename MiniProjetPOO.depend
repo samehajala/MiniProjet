@@ -64,14 +64,14 @@
 1683547600 source:c:\users\lenovo\documents\miniprojetpoo\bourse.cpp
 	"Bourse.h"
 
-1682857667 c:\users\lenovo\documents\miniprojetpoo\bourse.h
+1683550457 c:\users\lenovo\documents\miniprojetpoo\bourse.h
 	"PrixJournalier.h"
 	"PersistancePrixJournaliers.h"
 	<vector>
 	<string>
 	"Date.h"
 
-1682857667 source:c:\users\lenovo\documents\miniprojetpoo\boursevector.cpp
+1683555005 source:c:\users\lenovo\documents\miniprojetpoo\boursevector.cpp
 	<iostream>
 	<string>
 	<vector>
@@ -120,7 +120,7 @@
 1682769164 c:\users\lenovo\documents\miniprojetpoo\traderaleatoire.h
 	"Trader.h"
 
-1682889102 source:c:\users\lenovo\documents\miniprojetpoo\simulation.cpp
+1683554585 source:c:\users\lenovo\documents\miniprojetpoo\simulation.cpp
 	"Simulation.h"
 
 1682793841 c:\users\lenovo\documents\miniprojetpoo\simulation.h

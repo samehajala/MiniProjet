@@ -12,11 +12,12 @@ vector<string> BourseVector::getActionsDisponibleParDate(const Date& dateEntree)
     }
     for(auto pj=Historique.begin();pj!= Historique.end();++pj)
     {
-        if(pj->getDate()==dateEntree && pj->getDate()<dateDuJour)
-        {
+        if(pj->getDate()==dateEntree && (pj->getDate()<dateDuJour || pj->getDate()==dateDuJour) ){
             actions.push_back(pj->getNomAction()) ;
+
         }
     }
+
     return actions;
 }
 

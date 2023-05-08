@@ -26,7 +26,7 @@ map<string , long> Simulation::executer(Bourse &bourse ,Trader& trader , Date da
         Transaction transaction=trader.choisirTransaction(bourse,porteFeuille) ;
         if(transaction.getTypeTransaction()==Rien)
         {
-            //cout<<"Rien faire"<<endl gfgfg ;
+            //cout<<"Rien faire"<<endl  ;
             NombreDesTransactionRien++ ;
         }
 

@@ -12,8 +12,12 @@ vector<string> BourseVector::getActionsDisponibleParDate(const Date& dateEntree)
     }
     for(auto pj=Historique.begin();pj!= Historique.end();++pj)
     {
-        if(pj->getDate()==dateEntree && (pj->getDate()<dateDuJour || pj->getDate()==dateDuJour) ){
+        if(pj->getDate()<=dateEntree && pj->getDate()<dateDuJour)
+        {
+            if (pj->getDate()==dateEntree){
             actions.push_back(pj->getNomAction()) ;
+            }
+
 
         }
     }
@@ -28,8 +32,10 @@ vector<PrixJournalier> BourseVector::getPrixJournalierParDate(const Date& dateEn
         return prixJournaliers ;
     }
     for (auto pj=Historique.begin();pj!=Historique.end();++pj) {
-        if (pj->getDate() == dateEntree) {
+        if (pj->getDate()<= dateEntree) {
+            if (pj->getDate()==dateEntree){
             prixJournaliers.push_back(*pj);
+            }
         }
     }
     return prixJournaliers;
@@ -37,27 +43,22 @@ vector<PrixJournalier> BourseVector::getPrixJournalierParDate(const Date& dateEn
 float BourseVector::getPrixJournalierParDatePourUneAction(const Date& dateEntree ,const string& nomAction  ) const
 {
     float PrixU=0.0;
-    vector<PrixJournalier> prixJournaliers;
-    for (auto pj=Historique.begin();pj!=Historique.end();++pj)
+    
+    vector<PrixJournalier> prixJournaliers = getPrixJournalierParDate(dateEntree);
+    
+
+    //Recherche du nom d'action dans le vecteur prixJournaliers
+    for(auto pj=prixJournaliers.begin();pj!=prixJournaliers.end();++pj)
     {
-        if (pj->getDate() == dateEntree)
-        {
-            prixJournaliers.push_back(*pj);
-        }
-    }
-    if(dateEntree>dateDuJour)
-    {
-        return PrixU ;
-    }
-    for(auto pj=Historique.begin();pj!=Historique.end();++pj)
-    {
-        if(pj->getDate()==dateEntree && pj->getNomAction()==nomAction)
+        if(pj->getNomAction()==nomAction)
         {
             PrixU=pj->getPrix() ;
         }
     }
     return PrixU ;
 }
+
+
 void BourseVector::PasserALaJourneeSuivante()
 {
     dateDuJour.passToNextDay() ;

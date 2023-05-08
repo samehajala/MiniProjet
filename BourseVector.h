@@ -2,8 +2,6 @@
 #define BOURSEVECTOR_H_INCLUDED
 #include <vector>
 #include <string>
-
-#define CHEMIN_FICHIER "sam.csv"
 #include"Bourse.h"
 class BourseVector : public Bourse {
 private:

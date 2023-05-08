@@ -9,7 +9,7 @@
 1682794380 c:\users\lenovo\documents\miniprojetpoo\date.h
 	<iostream>
 
-1682888039 source:c:\users\lenovo\documents\miniprojetpoo\main.cpp
+1683549318 source:c:\users\lenovo\documents\miniprojetpoo\main.cpp
 	<iostream>
 	"Date.h"
 	"PersistancePrixJournaliers.h"
@@ -61,7 +61,7 @@
 	<string>
 	<vector>
 
-1682629266 source:c:\users\lenovo\documents\miniprojetpoo\bourse.cpp
+1683547600 source:c:\users\lenovo\documents\miniprojetpoo\bourse.cpp
 	"Bourse.h"
 
 1682857667 c:\users\lenovo\documents\miniprojetpoo\bourse.h
@@ -78,7 +78,7 @@
 	"BourseVector.h"
 	<fstream>
 
-1682857667 c:\users\lenovo\documents\miniprojetpoo\boursevector.h
+1683548634 c:\users\lenovo\documents\miniprojetpoo\boursevector.h
 	<vector>
 	<string>
 	"Bourse.h"

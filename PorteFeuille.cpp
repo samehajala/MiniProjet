@@ -19,4 +19,5 @@ void PorteFeuille::vendreTitre(Titre titre,double montant )
             solde=solde+montant ;
         }
     }
+    
 }

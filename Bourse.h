@@ -10,11 +10,17 @@ class Bourse
 protected:
     Date dateDuJour ;
 public:
+
     Bourse(){}
     Bourse(Date d){dateDuJour=d ; }
     Date getDateCourante()const { return dateDuJour ; }
-    virtual vector<string> getActionsDisponibleParDate( const Date& DateEntree ) const =0 ;
-    virtual vector<PrixJournalier> getPrixJournalierParDate(const  Date& DateEntree ) const =0 ;
+
+    template <typename Container>
+
+    Container getActionsDisponibleParDate(const Date& DateEntree) const {    }
+    template <typename Container>
+    Container getPrixJournalierParDate(const Date& DateEntree) const {    }
+    
     virtual float getPrixJournalierParDatePourUneAction(const Date& DateEntree ,const string& nomAction  )const =0 ;
     virtual void PasserALaJourneeSuivante()=0 ;
 

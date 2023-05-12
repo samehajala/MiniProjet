@@ -10,8 +10,8 @@ private:
 public:
     BourseVector();
     BourseVector(const Date&d,vector<PrixJournalier> histo ): Bourse(d) , Historique(histo) {}
-    vector<string> getActionsDisponibleParDate(const Date& dateEntree) const override;
-    vector<PrixJournalier> getPrixJournalierParDate(const Date& dateEntree) const override;
+    vector<string> getActionsDisponibleParDate(const Date& dateEntree) const ;
+    vector<PrixJournalier> getPrixJournalierParDate(const Date& dateEntree) const ;
     float getPrixJournalierParDatePourUneAction(const Date& DateEntree ,const string& nomAction  ) const override ;
     void PasserALaJourneeSuivante() override ;
 };

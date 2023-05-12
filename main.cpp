@@ -3,7 +3,7 @@
 #include"PersistancePrixJournaliers.h"
 #include"PrixJournalier.h"
 #include"BourseVector.h"
-
+#include<BourseSet.h>
 #include"Transaction.h"
 #include"TraderAleatoire.h"
 #include<string>
@@ -40,11 +40,11 @@ int main()
     TraderAleatoire TA ;
     Transaction tx ;
 
-    Simulation maSimulation ;
+    Simulation<BourseVector> maSimulationVector ;
 
     Date d3(26,3,2010) ;
     map<string,long> statistiquesSimulation ;
-    statistiquesSimulation=Simulation::executer(bourse,TA,d1,d3,10000) ;
+    statistiquesSimulation=Simulation<BourseVector>::executer(bourse,TA,d1,d3,10000) ;
     /*cout<<"on a fini la Simulation avec succes et voici les statistiques "<<endl ;
     cout<<"Le nombre total des transactions est:\t"<<statistiquesSimulation["nombre Des Transactions Totales"]<<endl ;
     cout<<"Le nombre des actions acheter est:\t"<<statistiquesSimulation["NombreDesTransactionAcheter"]<<endl ;

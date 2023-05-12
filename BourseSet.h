@@ -4,14 +4,15 @@
 #include <string>
 #include"Bourse.h"
 class BourseSet : public Bourse {
+
 private:
-    vector<PrixJournalier> Historique;
+    set<PrixJournalier> Historique;
 
 public:
     BourseSet();
-    BourseSet(const Date&d,vector<PrixJournalier> histo ): Bourse(d) , Historique(histo) {}
-    set<string> getActionsDisponibleParDate(const Date& dateEntree) const override;
-    set<PrixJournalier> getPrixJournalierParDate(const Date& dateEntree) const override;
+    BourseSet(const Date&d,set<PrixJournalier> histo ): Bourse(d) , Historique(histo) {}
+    set<string> getActionsDisponibleParDate(const Date& dateEntree) const ;
+    set<PrixJournalier> getPrixJournalierParDate(const Date& dateEntree) const ;
     float getPrixJournalierParDatePourUneAction(const Date& DateEntree ,const string& nomAction  ) const override ;
     void PasserALaJourneeSuivante() override ;
 };

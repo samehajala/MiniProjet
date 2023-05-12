@@ -3,7 +3,7 @@
 #include"PersistancePrixJournaliers.h"
 #include"PrixJournalier.h"
 #include"BourseVector.h"
-#include<BourseSet.h>
+#include"BourseSet.h"
 #include"Transaction.h"
 #include"TraderAleatoire.h"
 #include<string>

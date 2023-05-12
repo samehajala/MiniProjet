@@ -5,11 +5,11 @@
 #include"Bourse.h"
 class BourseSet : public Bourse {
 private:
-    vector<PrixJournalier> Historique;
+    set<PrixJournalier> Historique;
 
 public:
     BourseSet();
-    BourseSet(const Date&d,vector<PrixJournalier> histo ): Bourse(d) , Historique(histo) {}
+    BourseSet(const Date&d,set<PrixJournalier> histo ): Bourse(d) , Historique(histo) {}
     set<string> getActionsDisponibleParDate(const Date& dateEntree) const override;
     set<PrixJournalier> getPrixJournalierParDate(const Date& dateEntree) const override;
     float getPrixJournalierParDatePourUneAction(const Date& DateEntree ,const string& nomAction  ) const override ;

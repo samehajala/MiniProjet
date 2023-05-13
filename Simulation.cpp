@@ -2,7 +2,7 @@
 using namespace std;
 template <typename BourseType>
 
-map<string, long> Simulation<BourseType>::executer(BourseType &bourse, Trader &trader, Date dateDebut, Date dateFin, double solde)
+map<string, long> Simulation<BourseType>::executer(BourseType &bourse, Trader<BourseType> &trader, Date dateDebut, Date dateFin, double solde)
 {
     map<string, long> maSimulation;
     PorteFeuille porteFeuille(solde);

@@ -3,10 +3,12 @@
 #include"Bourse.h"
 #include"PorteFeuille.h"
 #include"Transaction.h"
+
+template <typename BourseType>
 class Trader
 {
 public :
-    virtual Transaction choisirTransaction(const Bourse& bourse, const PorteFeuille& porteFeuille)=0 ;
+    virtual Transaction choisirTransaction(const BourseType& bourse, const PorteFeuille& porteFeuille)=0 ;
     virtual ~Trader() {} ;
 };
 

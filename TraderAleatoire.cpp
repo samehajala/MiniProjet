@@ -1,9 +1,11 @@
 #include"TraderAleatoire.h"
+#include"Trader.h"
 #include<vector>
 #include <cstdlib>
 #include <ctime>
 #include<string>
-Transaction TraderAleatoire::choisirTransaction(const Bourse& bourse, const PorteFeuille& porteFeuille)
+template <typename BourseType>
+Transaction TraderAleatoire<BourseType>::choisirTransaction(const BourseType& bourse, const PorteFeuille& porteFeuille)
 {
 
 

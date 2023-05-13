@@ -17,7 +17,7 @@ int main()
 {
     auto tStart = chrono::high_resolution_clock::now();
     srand(time(nullptr));
-     PersistancePrixJournaliers pers ;
+    PersistancePrixJournaliers<std::vector<PrixJournalier>> pers ;
     vector<PrixJournalier> prixJour ;
     prixJour=pers.lirePrixJournaliersDUnFichier("prices.csv") ;
     cout<<"La taille de votre fichier csv est:\t"<<prixJour.size()<<endl ;
@@ -37,7 +37,7 @@ int main()
     titres.push_back(t1) ;
     PorteFeuille p ;
 
-    TraderAleatoire TA ;
+    TraderAleatoire<BourseVector> TA ;
     Transaction tx ;
 
     Simulation<BourseVector> maSimulationVector ;

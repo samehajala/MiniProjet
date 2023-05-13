@@ -10,7 +10,7 @@ private:
     BourseType bourse;
 
 public:
-    static map<string, long> executer(BourseType &bourse, Trader &trader, Date dateDebut, Date dateFin, double solde);
+    static map<string, long> executer(BourseType &bourse, Trader<BourseType> &trader, Date dateDebut, Date dateFin, double solde);
 };
 
 #endif // SIMULATION_H_INCLUDED

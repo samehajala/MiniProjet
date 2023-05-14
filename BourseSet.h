@@ -4,6 +4,7 @@
 #include <string>
 #include"Bourse.h"
 class BourseSet : public Bourse {
+
 private:
     set<PrixJournalier> Historique;
 

@@ -12,6 +12,7 @@ public :
     string getNomAction() const ;
     int getQuantite() const  ;
     bool operator==(const Titre& titre) const  ;
+    bool operator<(const Titre& titre) const;
 };
 
 #endif // TITRE_H_INCLUDED

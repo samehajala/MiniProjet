@@ -25,6 +25,7 @@ public:
     Date operator++() ;
     bool operator<(const Date& otherDay) const ;
     bool operator<=(const Date& otherDay) const  ;
+    bool operator>=(const Date& otherDay) const  ;
     bool operator>(const Date& otherDay) const ;
     friend ostream& operator<<(ostream& output, const Date& date) ;
     friend istream& operator>>(istream& input,Date& date ) ;

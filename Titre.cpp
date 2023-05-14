@@ -12,3 +12,10 @@ bool Titre::operator==(const Titre& titre) const
 {
     return nomAction==titre.getNomAction() && quantite==titre.getQuantite() ;
 }
+bool Titre::operator<(const Titre& titre) const
+{
+    if (nomAction == titre.getNomAction())
+        return quantite < titre.getQuantite();
+    else
+        return nomAction < titre.getNomAction();
+}

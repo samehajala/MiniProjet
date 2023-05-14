@@ -2,8 +2,9 @@
 #include"Date.h"
 #include"PersistancePrixJournaliers.h"
 #include"PrixJournalier.h"
-#include"BourseVector.h"
-
+#include"Bourse.h"
+#include"BourseSet.h"
+#include<set>
 #include"Transaction.h"
 #include"TraderAleatoire.h"
 #include<string>
@@ -18,14 +19,14 @@ int main()
     auto tStart = chrono::high_resolution_clock::now();
     srand(time(nullptr));
      PersistancePrixJournaliers pers ;
-    vector<PrixJournalier> prixJour ;
-    prixJour=pers.lirePrixJournaliersDUnFichier("prices.csv") ;
+    set<PrixJournalier> prixJour ;
+    prixJour = pers.lirePrixJournaliersDUnFichier("prices.csv") ;
     cout<<"La taille de votre fichier csv est:\t"<<prixJour.size()<<endl ;
 
 
     Date d1(6,1,2010);
 
-     BourseVector bourse(d1,prixJour) ;
+    BourseSet bourse(d1,prixJour) ;
 
     cout<<bourse.getDateCourante()<<endl ;
 
@@ -33,14 +34,14 @@ int main()
     Titre t1("stf",500) ;
     cout<<t1.getQuantite()<<endl ;
     cout<<t1.getNomAction()<<endl ;
-    vector<Titre> titres ;
-    titres.push_back(t1) ;
+    set<Titre> titres ;
+    titres.insert(t1) ;
     PorteFeuille p ;
 
     TraderAleatoire TA ;
     Transaction tx ;
 
-    Simulation maSimulation ;
+    Simulation maSimulationVector ;
 
     Date d3(26,3,2010) ;
     map<string,long> statistiquesSimulation ;

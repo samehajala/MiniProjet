@@ -3,13 +3,14 @@
 #include<vector>
 #include<fstream>
 #include"PrixJournalier.h"
+#include<set>
 using namespace std;
 
 class PersistancePrixJournaliers
 {
     public:
-        static vector<PrixJournalier> lirePrixJournaliersDUnFichier(string chemin){
-            vector<PrixJournalier> historique;
+        static set<PrixJournalier> lirePrixJournaliersDUnFichier(string chemin){
+            set<PrixJournalier> historique;
             ifstream f(chemin);
             int nbLignes= 0;
             string entete;
@@ -18,7 +19,7 @@ class PersistancePrixJournaliers
                 while(!f.eof()){
                     PrixJournalier pj;
                     f>>(pj);
-                    historique.push_back(pj);
+                    historique.insert(pj);
                     nbLignes++;
                 }
             }

@@ -9,6 +9,7 @@ set<string> BourseSet::getActionsDisponibleParDate(const Date& dateEntree) const
     if(dateEntree>dateDuJour)
     {
         return actions ;
+        
     }
     for(auto pj=Historique.begin();pj!= Historique.end();++pj)
     {

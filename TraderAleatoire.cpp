@@ -1,32 +1,35 @@
-#include"TraderAleatoire.h"
-#include<vector>
+#include "TraderAleatoire.h"
+
 #include <cstdlib>
 #include <ctime>
-#include<string>
-Transaction TraderAleatoire::choisirTransaction(const Bourse& bourse, const PorteFeuille& porteFeuille)
+#include <string>
+#include <set>
+Transaction TraderAleatoire::choisirTransaction(const Bourse &bourse, const PorteFeuille &porteFeuille)
 {
 
-
-   vector<PrixJournalier>  actions=bourse.getPrixJournalierParDate(bourse.getDateCourante()) ;
-   int choix=rand()%3 ;// faire le choix d'acheter ou vendre ou rien faire
-   vector<Titre> titresPossedes=porteFeuille.getTitres() ;
-   if(titresPossedes.size()==0&& choix==1)
-   {
-       choix=2 ;
-   }
-     if(actions.size()==0&& choix==0)
-   {
-       choix=2 ;
-   }
-
-   if(choix==0) //le choix ici c'est acheter ;
+    set<PrixJournalier> actions = bourse.getPrixJournalierParDate(bourse.getDateCourante());
+    int choix = rand() % 3; // faire le choix d'acheter ou vendre ou rien faire
+    vector<Titre> titresPossedes = porteFeuille.getTitres();
+    if (titresPossedes.size() == 0 && choix == 1)
     {
-        int randquantite= (rand()%10)+1 ;
-        int indexActionAAcheter=rand()%actions.size() ;
-        string  nomactionAAcheter=actions[indexActionAAcheter].getNomAction() ;
-        return Transaction(Acheter,nomactionAAcheter,randquantite);
+        choix = 2;
     }
-    else if(choix==1)//le choix ici c'est vendre
+    if (actions.size() == 0 && choix == 0)
+    {
+        choix = 2;
+    }
+
+    if (choix == 0) // le choix ici c'est acheter ;
+    {
+        int randquantite = (rand() % 10) + 1;
+        int indexActionAAcheter = rand() % actions.size();
+        auto it = actions.begin();
+
+        std::advance(it, indexActionAAcheter);
+        string nomactionAAcheter = it->getNomAction();
+        return Transaction(Acheter, nomactionAAcheter, randquantite);
+    }
+    else if (choix == 1) // le choix ici c'est vendre
     {
         int indexActionAVendre=rand()%titresPossedes.size() ;
         int randquantite=rand()%titresPossedes[indexActionAVendre].getQuantite() ;
@@ -36,6 +39,6 @@ Transaction TraderAleatoire::choisirTransaction(const Bourse& bourse, const Port
     }
     else
     {
-        return Transaction(Rien) ;
+        return Transaction(Rien);
     }
 }

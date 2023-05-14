@@ -1,5 +1,7 @@
 #include"PorteFeuille.h"
 using namespace std ;
+#include"PorteFeuille.h"
+using namespace std ;
 void PorteFeuille::acheterTitre(Titre titre , double montant )
 {
     if(solde>montant)
@@ -21,3 +23,4 @@ void PorteFeuille::vendreTitre(Titre titre,double montant )
     }
     
 }
+     

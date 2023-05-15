@@ -19,6 +19,12 @@ public:
     int  getYear()  const;
     bool  isLeapYear()  const ;
     int dayInMonth() const ;
+    void setDate(int d,int m,int y)
+    {
+        dd=d ;
+        mm=m ;
+        yyyy=y ;
+    }
     void passToNextDay() ;
     bool operator==(const Date& otherDay) const  ;
     bool operator!=(const Date& otherDay)  const ;

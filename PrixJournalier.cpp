@@ -25,7 +25,14 @@ PrixJournalier::PrixJournalier(Date date,string nomAction,float prix)
     this->nomAction=nomAction;
     this->prix=prix ;
 }
-
+bool PrixJournalier::operator<(const PrixJournalier& prixJ) const
+{
+    if (this->date==prixJ.getDate())
+    {
+        return this->getNomAction()<prixJ.getNomAction() ;
+    }
+    return (this->date<prixJ.getDate() ) ;
+}
 ostream& operator<<(ostream& output, const PrixJournalier& prixJ)
 {
     output<<prixJ.date<<":"<<"Nom de l'action: "<<prixJ.nomAction<<" Prix: "<<prixJ.prix<<endl ;

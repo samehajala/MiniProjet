@@ -9,6 +9,7 @@ class Titre
 public :
     Titre() ;
     Titre(string nomaction , int qte):nomAction(nomaction) , quantite(qte) {}
+    void setQuantite(int qt) ;
     string getNomAction() const ;
     int getQuantite() const  ;
     bool operator==(const Titre& titre) const  ;

@@ -13,7 +13,7 @@ public:
     vector<string> getActionsDisponibleParDate(const Date& dateEntree) const override;
     vector<PrixJournalier> getPrixJournalierParDate(const Date& dateEntree) const override;
     float getPrixJournalierParDatePourUneAction(const Date& DateEntree ,const string& nomAction  ) const override ;
-    void PasserALaJourneeSuivante() override ;
+    float getDernierPrixDuneAction(const Date& date,const string& action)const override ;
 };
 
 #endif // BOURSEVECTOR_H_INCLUDED
